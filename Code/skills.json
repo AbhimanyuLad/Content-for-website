@@ -1,12 +1,12 @@
 {
   "heading": "Frontend",
-  "frontend": ["HTML5","CSS3", "JavaScript (ES6+)"]
+  "software": ["HTML5","CSS3", "JavaScript (ES6+)"]
 },
 {
   "heading": "Backend"
-  "backend": ["Node.js", "Express.js", "RESTful APIs", "MongoDB","MySQL"]
+  "software": ["Node.js", "Express.js", "RESTful APIs", "MongoDB","MySQL"]
 },
 {
   "heading": "Tools & Software",
-  "toolsAsoft":["Git & GitHub", "VS Code", "npm/yarn", "Postman", "Figma"]
+  "software":["Git & GitHub", "VS Code", "npm/yarn", "Postman", "Figma"]
 }
