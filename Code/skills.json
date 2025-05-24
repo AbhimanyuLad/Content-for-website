@@ -1,12 +1,14 @@
-{
-  "heading": "Frontend",
-  "software": ["HTML5","CSS3", "JavaScript (ES6+)"]
-},
-{
-  "heading": "Backend"
-  "software": ["Node.js", "Express.js", "RESTful APIs", "MongoDB","MySQL"]
-},
-{
-  "heading": "Tools & Software",
-  "software":["Git & GitHub", "VS Code", "npm/yarn", "Postman", "Figma"]
-}
+[
+  {
+    "heading": "Frontend",
+    "software": ["HTML5","CSS3", "JavaScript (ES6+)"]
+  },
+  {
+    "heading": "Backend"
+    "software": ["Node.js", "Express.js", "RESTful APIs", "MongoDB","MySQL"]
+  },
+  {
+    "heading": "Tools & Software",
+    "software":["Git & GitHub", "VS Code", "npm/yarn", "Postman", "Figma"]
+  }
+]
