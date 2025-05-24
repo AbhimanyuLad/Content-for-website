@@ -5,7 +5,7 @@
     "created_date": "22-05-2025",
     "updated_date": null,
     "description": " Developed a comprehensive railway ticket booking platform where users can create accounts, log in, book train tickets, and cancel them. The system also includes features such as seat availability checking, dynamic fare calculation, and user-friendly booking and cancellation processes. Features: User authentication and authorization , Real-time seat availability and fare calculation ,Option to view and cancel booked tickets.",
-    "live demo": "https://railway-ticket-booking.onrender.com",
+    "live_demo": "https://railway-ticket-booking.onrender.com",
     "tags": ["Node.js", "Express.js", "MongoDB", "HTML", "CSS", "Bootstrap"],
     "image": "https://abhimanyulad.github.io/Content-for-website/Images/Railway%20ticketing%20App%20Banner.png"
   }
