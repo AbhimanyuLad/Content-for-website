@@ -1,7 +1,8 @@
 [
   {
     "course": "Alpha Plus (DSA in Java)",
-    "certificate": "https://abhimanyulad.github.io/Content-for-website/Images/Alpha%20Plus%20Certificate.jpg"
+    "completion_date": "2023-3",
+    "certificate": "https://abhimanyulad.github.io/Content-for-website/Images/Alpha%20Plus%20Certificate.jpg",
     "description": "The use cases of Data Structure and Algorithms, the types of data Structures were taught in this course"
   }
 ]
