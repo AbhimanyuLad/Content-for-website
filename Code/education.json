@@ -1,19 +1,19 @@
 [
   {
     "collegeName": "Unnati vidhayalaya (Nashik)",
-    "std" : "X (SSC)",
+    "course" : "X (SSC)",
     "grade": "68.9%",
     "year": "2018"
   },
   {
     "collegeName": "Sathaye College, Mumbai",
-    "std" : "XII (HSC)",
+    "course" : "XII (HSC)",
     "grade": "62%",
     "year": "2020"
   },
   {
     "collegeName": "Chandigarh University, Punjab",
-    "std" : "BCA",
+    "course" : "BCA",
     "grade": "CGPA: 7.90",
     "year": "2025"
   }
