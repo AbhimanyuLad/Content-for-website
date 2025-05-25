@@ -15,7 +15,7 @@
     "created_date": "22-05-2025",
     "updated_date": null,
     "description": "Created a platform for listing rented rooms and allowing users to provide feedback on these rooms. The system supports room listings, user reviews, and feedback management. Listing of available rented rooms with detailed descriptions, User feedback and review submission for listed rooms, Admin interface for managing room listings and feedback, Responsive design for easy access on various devices",
-    "live demo": "https://rentaroom.onrender.com",
+    "live_demo": "https://rentaroom.onrender.com",
     "tags": ["Node.js", "Express.js", "MongoDB", "HTML", "CSS", "Bootstrap"],
     "image": "https://abhimanyulad.github.io/Content-for-website/Images/feedback%20for%20room.png"
   }
