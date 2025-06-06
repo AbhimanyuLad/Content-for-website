@@ -3,7 +3,7 @@
 Welcome to my blog section! I share insights, tutorials, and experiences around web development, AI, and software engineering.
 
 ---
-### Title:  [Building a Chess Agent with Spring Boot] (https://abhimanyulad.github.io/Content-for-website/Code/Blog/Chess.md)
+### Title:  [Building a Chess Agent with Spring Boot](https://abhimanyulad.github.io/Content-for-website/Code/Blog/Chess.md)
 > *Published on: May 2025*,
 > *Time: 10 Minutes*
 
