@@ -5,7 +5,7 @@ Welcome to my blog section! I share insights, tutorials, and experiences around 
 ---
 ## Recent Posts
 
-###  [Building a Chess Agent with Spring Boot and Stockfish](/chess.md)
+###  [Building a Chess Agent with Spring Boot and Stockfish](./Blog/chess.md)
 > *Published on: May 2025*,
 > *Time: 10 Minutes*
 
