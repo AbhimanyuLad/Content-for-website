@@ -5,7 +5,7 @@ Welcome to my blog section! I share insights, tutorials, and experiences around 
 ---
 ## Recent Posts
 
-### Title:  [Building a Chess Agent with Spring Boot](.Code/Blog/chess.md)
+### Title:  [Building a Chess Agent with Spring Boot](./Blog/chess.md)
 > *Published on: May 2025*,
 > *Time: 10 Minutes*
 
