@@ -11,8 +11,8 @@ Link:- https://abhimanyulad.github.io/Content-for-website/Code/Blog/Chess.md
 In this blog, I walk you through how I built a Chess AI opponent using the Stockfish engine, integrated with a Java Spring Boot backend. You'll also learn how I structured the move evaluation system and used Gemini for strategic analysis.
 
 ---
-### Title: [Integrating Contact Forms with MongoDB in Docker](./blogs/contact-form-docker.md)
-Link: https://abhimanyulad.github.io/Content-for-website/Code/Blog/Chess.html
+### Title: [Integrating Contact Forms with MongoDB in Docker]
+Link: https://abhimanyulad.github.io/Content-for-website/Code/Blog/Chess.md
 > *Published on: April 2025*,
 > *Time: 10 Minutes*
 
