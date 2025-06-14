@@ -12,7 +12,7 @@ In this blog, I walk you through how I built a Chess AI opponent using the Stock
 
 ---
 ### Title: [Integrating Contact Forms with MongoDB in Docker](./blogs/contact-form-docker.md)
-Link:-
+Link: https://abhimanyulad.github.io/Content-for-website/Code/Blog/Chess.html
 > *Published on: April 2025*,
 > *Time: 10 Minutes*
 
