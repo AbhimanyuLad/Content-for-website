@@ -12,7 +12,7 @@ content:- In this blog, I walk you through how I built a Chess AI opponent using
 
 ---
 ### Title: [Integrating Contact Forms with MongoDB in Docker]
-Link:- https://abhimanyulad.github.io/Content-for-website/Code/Blog/Chess.md
+Link:- https://abhimanyulad.github.io/Content-for-website/Code/Blog/Mongo.md
 > *Published on: April 2025*,
 > *Time: 10 Minutes*
 
