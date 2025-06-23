@@ -51,28 +51,193 @@ Here's a breakdown of the core structure:
 - `Spring Boot Backend` — Handles game state, move validation
 - `Gemini API` — Offers extra move suggestions (for learning/analysis)
 
-## Objectives
-
-a) Aim- To design and implement an intelligent chess agent that uses Google’s Gemini AI to generate real-time, UCI-compliant chess moves within a web-based platform, enabling users to play against a human-like AI opponent.
-
-b) Objectives-
-1. Develop a responsive React-based frontend that displays a chessboard, timer,
-
-and move history.
-2. Implement a Spring Boot backend to manage the communication between the
-frontend and Gemini AI.
-3. Design a prompt-generation system that converts user move history into
-meaningful input for the Gemini API.
-4. Use Gemini AI to analyse the game state and generate a legal UCI-standard move.
-5. Validate and forward AI-generated moves to the frontend in real time.
-6. Ensure compliance with standard chess rules throughout the game.
-7. Evaluate the performance of the AI in terms of response time, accuracy, and user
+## Aims and Objectives
+a) Aim- To design and implement an intelligent chess agent that uses Google’s Gemini AI 
+to generate real-time, UCI-compliant chess moves within a web-based platform, 
+enabling users to play against a human-like AI opponent. 
+b) Objectives- 
+1. Develop a responsive React-based frontend that displays a chessboard, timer, 
+and move history. 
+2. Implement a Spring Boot backend to manage the communication between the 
+frontend and Gemini AI. 
+3. Design a prompt-generation system that converts user move history into 
+meaningful input for the Gemini API. 
+4. Use Gemini AI to analyse the game state and generate a legal UCI-standard move. 
+5. Validate and forward AI-generated moves to the frontend in real time. 
+6. Ensure compliance with standard chess rules throughout the game. 
+7. Evaluate the performance of the AI in terms of response time, accuracy, and user 
 experience.
 
-## Code Snippet: Launching Stockfish
+##  Period and Scope 
+This project was completed over a period of approximately 1–2 months as part of the 
+academic mini project requirements. The project focuses on building a two-player chess 
+game (User vs. AI) where the user plays against an AI agent powered by Google’s Gemini 
+model. The system includes a React frontend, a Spring Boot backend, and integration 
+with the Gemini API to receive UCI-format moves. It supports features such as a timer, 
+move history tracking, easy, moderate, hard level game play and real-time move 
+updates. The scope is limited to standard chess rules and does not include multiplayer 
+support for the AI.
 
-```java
-ProcessBuilder pb = new ProcessBuilder("stockfish");
-Process engine = pb.start();
-BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(engine.getOutputStream()));
-BufferedReader reader = new BufferedReader(new InputStreamReader(engine.getInputStream()));
+## Limitation of the work 
+The Gemini AI model is not trained explicitly for chess and may occasionally produce 
+illegal or suboptimal moves despite structured prompts. 
+• Real-time performance depends on API response latency, which may cause slight 
+delays in gameplay. 
+• The AI opponent cannot simulate multiple difficulty levels or adjust its playing style 
+dynamically. But there after we have tried to implement the levels by using needful 
+prompt. 
+• No offline mode is available; the game relies on an internet connection to access 
+Gemini API services. 
+• The system does not use any internal validation engine like Stockfish for verifying 
+move legality — it relies on basic rule validation, regex and prompt design.
+
+## Work flow
+
+
+![GitHub Logo](https://github.githubassets.com/Content-for-website/Images/Screenshot(115).png)
+The system workflow consists of a frontend, backend, and AI module. The user interacts 
+with a React-based chessboard. When a move is made, it is sent to the Spring Boot 
+backend, which builds a prompt using the move history. This prompt is sent to Gemini, 
+which returns a UCI-format move. The backend forwards this move to the frontend, where 
+the AI move is rendered on the board. This cycle continues until the game ends.
+
+## Technology stack 
+➢ Frontend (React): 
+  • Rendered the chessboard 
+  • Managed timers and move history 
+  • Sent user moves to backend using REST 
+➢ Backend (Spring Boot): 
+  • Created REST endpoints 
+  • Processed frontend data 
+  • Constructed prompts and sent them to Gemini 
+  • Received AI move and sent it to frontend 
+➢ Gemini AI API: 
+  • Interpreted prompts 
+  • Returned chess moves in UCI format
+  
+## Backend Implementation
+
+1. UCI Move Validation: The backend receives a list of user moves in UCI (Universal Chess Interface) 
+format. It checks each move using regular expressions to ensure it matches valid 
+UCI patterns (e.g., e2e4, g1f3, etc.). If any move is invalid, an exception is thrown 
+to prevent further processing. 
+2. Prompt Generation: Based on the current move history and selected difficulty level (Easy, Moderate, 
+or Hard), the backend constructs a text prompt. This prompt instructs the AI to 
+return the next best move in strict UCI format (e.g., f3g1), and is customized 
+according to the difficulty level: 
+o Easy: Random legal move 
+o Moderate: Reasonable strategic move 
+o Hard: Strongest move based on deep analysis  
+3. Calling Gemini AI API: The backend uses the HttpURLConnection class to send a POST request to the 
+Gemini AI API endpoint. The prompt is passed in the request body in a JSON 
+format. The response from Gemini is read and parsed using Jackson's 
+ObjectMapper, and the resulting AI move is extracted. 
+4. Session Management: The backend maintains the ongoing game state using HTTP sessions 
+(HttpSession). The move history is stored in the session so that each turn 
+updates the state without relying on frontend memory. 
+5. Error Handling: If the API call fails or the response is not as expected, the backend returns a 
+JSON error object. Logging is implemented to track prompts and responses for 
+debugging and transparency. 
+Example Response Format from Gemini: 
+```Json
+{  
+"from": "e2", 
+"to": "e4"
+}
+```
+This well-defined backend structure ensures a secure and scalable bridge between user 
+actions on the frontend and the intelligent move suggestions powered by Gemini AI. 
+3.5 Prompt Engineering 
+Prompt engineering is a crucial part of integrating AI services like Gemini into intelligent 
+systems. In this project, prompt engineering is used to guide the Gemini AI model in 
+generating accurate and valid chess moves based on the user's move history and 
+selected difficulty level. 
+Objective of Prompt Engineering:- The goal is to instruct Gemini to behave like a chess 
+agent that understands the game’s context and returns the next best move in strict UCI 
+(Universal Chess Interface) format (e.g., "e2e4"). 
+Prompt Structure: 
+The prompt is carefully crafted using the following structure: 
+1. Role Instruction: 
+Gemini is instructed to behave like a chess player. 
+10 
+"You are a chess player." 
+2. Context of Input: 
+The prompt explains the meaning of the move history and how the response 
+should be formatted. 
+"Based on the history of UCI moves, give the next move using only 'from' and 'to' squares 
+in UCI format." 
+3. Difficulty-Based Strategy: 
+The prompt dynamically appends a line depending on the selected difficulty: 
+o Easy → "Play a random legal move." 
+o Moderate → "Play a reasonable move based on strategy." 
+o Hard → "Analyse deeply and play the strongest move." 
+4. Move History Injection: 
+The prompt includes the full list of UCI moves made so far to help the model 
+understand the current board state. 
+"Here is the move history: e2e4, e7e5, g1f3" 
+5. Strict Output Format Instruction: 
+To ensure the model returns a structured and parsable result, it is asked to reply 
+in JSON format: 
+{ 
+} 
+"from": "e2", 
+"to": "e4" 
+Example Prompt Sent to Gemini: 
+```Json
+You are a chess player. 
+Based on the history of UCI moves, give the next move using only "from" and "to" 
+squares. 
+Please provide the move in UCI format for the chess piece. For example: from "f3" to 
+"g1". The correct format is "f3g1". 
+Play a reasonable move based on strategy. 
+11 
+Here is the move history: 
+[e2e4, e7e5, g1f3] 
+What is your next move? Reply strictly as JSON in this format: 
+{
+  "from": "square", 
+  "to": "square" 
+} 
+
+
+```
+## Why Prompt Engineering Matters: 
+• It ensures Gemini understands the specific role it plays (chess agent). 
+• It avoids ambiguity in output format, which is critical for backend processing. 
+• It aligns AI output with user expectations and difficulty level. 
+This careful design of prompts makes the AI predictable, reliable, and integrable into a 
+rule-based system like chess. 
+3.6 Testing and validation 
+To ensure the correctness and robustness of the Chess Agent application, unit testing 
+was conducted using Spring Boot’s testing framework along with JUnit. 
+Test Cases Implemented: 
+1. Valid Move Format Test: 
+• A list of valid UCI-formatted chess moves such as e2e4, g1f3, and e7e8q 
+was provided. 
+• The method checkInputAsPerUCIStandards() was invoked with these 
+moves. 
+•    Result: No exception was thrown, confirming the validation logic for 
+correct moves is functioning properly. 
+2. Invalid Move Format Test: 
+• An invalid list such as e9e4, hello, and e2-e4 was tested. 
+• The test expected an IllegalArgumentException to be thrown. 
+12 
+•    Result: The exception was correctly thrown with an appropriate 
+message, validating error handling. 
+3. Empty Move History Test: 
+• An empty list of moves was passed to the validation function. 
+• Since there are no moves to validate, the method should allow this. 
+•    Result: The function executed without error, showing graceful 
+handling of edge cases. 
+These test cases validate both positive (happy paths) and negative (error scenarios), 
+ensuring that the move validation mechanism works reliably across a range of inputs. 
+The tests also help confirm the application is handling prompt preparation correctly 
+before interacting with the Gemini API.
+
+## Conclusion 
+The chess game project demonstrates the feasibility of integrating frontend 
+technologies with intelligent systems like chess engines. It highlights how 
+structured architecture and modular design can contribute to a seamless user 
+experience. Through this project, key concepts such as state management, API 
+communication, custom hooks, and component-driven development were 
+implemented effectively. 
