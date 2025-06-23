@@ -184,7 +184,7 @@ in JSON format:
 } 
 
 Example Prompt Sent to Gemini: 
-<pre> ```json { You are a chess player. Based on the history of UCI moves, give the next move using only "from" and "to" squares. Please provide the move in UCI format for the chess piece. For example: from "f3" to "g1". The correct format is "f3g1". Play a reasonable move based on strategy. 11 Here is the move history: [e2e4, e7e5, g1f3] What is your next move? Reply strictly as JSON in this format: { "from": "square", "to": "square" } } ``` </pre>
+<pre> ```Json { You are a chess player. Based on the history of UCI moves, give the next move using only "from" and "to" squares. Please provide the move in UCI format for the chess piece. For example: from "f3" to "g1". The correct format is "f3g1". Play a reasonable move based on strategy. 11 Here is the move history: [e2e4, e7e5, g1f3] What is your next move? Reply strictly as JSON in this format: { "from": "square", "to": "square" } } ``` </pre>
 
 ## Why Prompt Engineering Matters: 
 • It ensures Gemini understands the specific role it plays (chess agent). 
