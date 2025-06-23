@@ -178,31 +178,14 @@ understand the current board state.
 5. Strict Output Format Instruction: 
 To ensure the model returns a structured and parsable result, it is asked to reply 
 in JSON format: 
-{ 
-} 
-"from": "e2", 
-"to": "e4" 
-Example Prompt Sent to Gemini: 
-```Json
 {
-  You are a chess player. 
-  Based on the history of UCI moves, give the next move using only "from" and "to" 
-  squares. 
-  Please provide the move in UCI format for the chess piece. For example: from "f3" to 
-  "g1". The correct format is "f3g1". 
-  Play a reasonable move based on strategy. 
-  11 
-  Here is the move history: 
-  [e2e4, e7e5, g1f3] 
-  What is your next move? Reply strictly as JSON in this format: 
-  {
-    "from": "square", 
-    "to": "square" 
-  }
+  "from": "e2", 
+  "to": "e4" 
 } 
 
+Example Prompt Sent to Gemini: 
+<pre> ```json { You are a chess player. Based on the history of UCI moves, give the next move using only "from" and "to" squares. Please provide the move in UCI format for the chess piece. For example: from "f3" to "g1". The correct format is "f3g1". Play a reasonable move based on strategy. 11 Here is the move history: [e2e4, e7e5, g1f3] What is your next move? Reply strictly as JSON in this format: { "from": "square", "to": "square" } } ``` </pre>
 
-```
 ## Why Prompt Engineering Matters: 
 • It ensures Gemini understands the specific role it plays (chess agent). 
 • It avoids ambiguity in output format, which is critical for backend processing. 
