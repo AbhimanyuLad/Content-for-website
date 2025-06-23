@@ -1,12 +1,41 @@
 ## Introduction
 
-Chess has long been recognized as the ultimate testbed for artificial intelligence, offering a rich blend of strategy, decision-making, and logical reasoning. From early rule-based engines to today’s advanced neural networks, the pursuit of building machines that can play chess at a high level continues to drive innovation in computer science and AI research. With the rise of generative AI models, particularly large language models (LLMs) like Gemini AI by Google, new opportunities have emerged to develop intelligent, language-aware agents capable of understanding game context and responding strategically. This project explores that potential by implementing a web-based Chess Agent that uses Gemini AI to play against a human user. The system architecture is divided into two core components: a React frontend and a Spring Boot backend. When the user lands on the home page, they are first prompted to configure the match — setting parameters like timers and preferences. Once the game starts, the interface displays a fully interactive chessboard along with a game clock. The user makes the first move, which is then logged and displayed in the move history panel for clarity and reference. After each move, the frontend sends the updated move history to the backend. The Spring Boot backend then plays a critical role — it constructs a dynamic natural language prompt that describes the current game situation and sends it to the Gemini AI agent via an API. Gemini interprets the prompt, processes the board state, and generates an intelligent move suggestion, returned in UCI (Universal Chess Interface) format. This format is widely accepted in chess engines and makes it easy to parse and execute moves programmatically. The UCI move is then forwarded to the frontend, which updates the board and continues the game seamlessly. What makes this project unique is the use of generative AI instead of traditional chess engines like Stockfish. Gemini doesn't rely solely on hard-coded evaluation functions or brute-force search algorithms; instead, it interprets game state through the lens of natural language understanding and strategic reasoning. This allows the AI to offer a
-more human-like, context-aware playing experience, making the match feel dynamic and unpredictable.
-This project demonstrates how modern AI models can be integrated into web applications to create engaging, intelligent user experiences. By bridging frontend
-interactivity with backend logic and AI-driven decision-making, the system represents a practical and innovative use of current technologies. It also opens the door for future enhancements, such as voice-based interaction, adaptive difficulty, or real-time
+Chess has long been recognized as the ultimate testbed for artificial intelligence, offering 
+a rich blend of strategy, decision-making, and logical reasoning. From early rule-based 
+engines to today’s advanced neural networks, the pursuit of building machines that can 
+play chess at a high level continues to drive innovation in computer science and AI 
+research. With the rise of generative AI models, particularly large language models 
+(LLMs) like Gemini AI by Google, new opportunities have emerged to develop intelligent, 
+language-aware agents capable of understanding game context and responding 
+strategically. This project explores that potential by implementing a web-based Chess 
+Agent that uses Gemini AI to play against a human user. 
+The system architecture is divided into two core components: a React frontend and a 
+Spring Boot backend. When the user lands on the home page, they are first prompted to 
+configure the match — setting parameters like timers and preferences. Once the game 
+starts, the interface displays a fully interactive chessboard along with a game clock. The 
+user makes the first move, which is then logged and displayed in the move history panel 
+for clarity and reference. 
+After each move, the frontend sends the updated move history to the backend. The 
+Spring Boot backend then plays a critical role — it constructs a dynamic natural language 
+prompt that describes the current game situation and sends it to the Gemini AI agent via 
+an API. Gemini interprets the prompt, processes the board state, and generates an 
+intelligent move suggestion, returned in UCI (Universal Chess Interface) format. This 
+format is widely accepted in chess engines and makes it easy to parse and execute 
+moves programmatically. The UCI move is then forwarded to the frontend, which 
+updates the board and continues the game seamlessly. 
+What makes this project unique is the use of generative AI instead of traditional chess 
+engines like Stockfish. Gemini doesn't rely solely on hard-coded evaluation functions or 
+brute-force search algorithms; instead, it interprets game state through the lens of 
+natural language understanding and strategic reasoning. This allows the AI to offer a 
+more human-like, context-aware playing experience, making the match feel dynamic 
+and unpredictable. 
+This project demonstrates how modern AI models can be integrated into web 
+applications to create engaging, intelligent user experiences. By bridging frontend 
+interactivity with backend logic and AI-driven decision-making, the system represents a 
+practical and innovative use of current technologies. It also opens the door for future 
+1 
+enhancements, such as voice-based interaction, adaptive difficulty, or real-time 
 commentary generated by AI.
-In summary, this Chess Agent project serves as a meaningful application of generative AI in a familiar and intellectually rich environment, showcasing the fusion of React, Spring Boot, and Gemini AI in building a responsive, intelligent, and enjoyable gaming platform.
-
 ## Purpose of the work
 
 The purpose of this project is to evaluate the effectiveness of a generative AI agent in playing a structured board game like chess. By integrating Google’s Gemini AI with a web- based chess platform, the project seeks to test the feasibility of using large language models to interpret game history and generate valid chess moves in UCI format. This serves as a step toward blending natural language understanding with strict rule-based
